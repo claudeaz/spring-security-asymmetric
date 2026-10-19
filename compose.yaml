@@ -1,0 +1,17 @@
+services:
+  postgres:
+    container_name: tuto_spring_sec_asymmetric
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: spring_app_db
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+
+volumes:
+  postgres:
